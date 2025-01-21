@@ -5,6 +5,7 @@
   align-items: center;
   padding: 32px;
   background: var(--color-primary);
+  opacity: 0.8;
   text-align: center;
 }
 

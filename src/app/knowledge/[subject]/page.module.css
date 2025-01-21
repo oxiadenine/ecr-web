@@ -26,12 +26,13 @@
 }
 
 main:has(.page) {
-  background: var(--color-secondary);
   margin: 0;
+  background: var(--color-secondary);
+  opacity: 0.8;
 }
 
 @media (min-width: 768px) {
   main:has(.page) {
-    margin: 0 4%;
+    padding: 0 4%;
   }
 }

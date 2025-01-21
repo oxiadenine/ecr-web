@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 16px;
   background: var(--color-primary);
+  opacity: 0.8;
 }
 
 .knowledge-card > span {
@@ -46,5 +47,4 @@
   line-clamp: 5;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
-  opacity: 0.8;
 }
