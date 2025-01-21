@@ -1,0 +1,22 @@
+.page {
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-rows: max-content;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .page {
+    grid-template-columns: auto auto;
+  }
+}
+
+main:has(.page) {
+  margin: 32px;
+}
+
+@media (min-width: 768px) {
+  main:has(.page) {
+    margin: 32px 8%;
+  }
+}

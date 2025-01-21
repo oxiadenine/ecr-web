@@ -1,0 +1,50 @@
+.knowledge-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: var(--color-primary);
+}
+
+.knowledge-card > span {
+  position: absolute;
+  top: 8px;
+  right: calc(0.75rem + 32px);
+  z-index: 1;
+  padding: 8px;
+  background: var(--color-secondary);
+  font-size: 0.75rem;
+}
+
+.knowledge-card > button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 16px;
+}
+
+.knowledge-card > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.knowledge-card > h3 {
+  padding-right: 32px;
+}
+
+.knowledge-card > a {
+  margin: 16px 8px;
+}
+
+.knowledge-card > a > p {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  opacity: 0.8;
+}

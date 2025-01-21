@@ -36,9 +36,23 @@ a {
   text-decoration: none;
 }
 
+button {
+  display: inline-flex;
+  cursor: pointer;
+}
+
 a, button {
   color: inherit;
   touch-action: manipulation;
+}
+
+input, button {
+  border: none;
+  background: none;
+}
+
+input:focus, button:focus {
+  outline: none;
 }
 
 input, button, textarea, select {
