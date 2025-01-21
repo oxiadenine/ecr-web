@@ -1,4 +1,5 @@
 import { monoton } from "@/app/fonts";
+import Footer from "@/app/components/footer";
 
 export default function Page() {
   return (
@@ -26,19 +27,7 @@ export default function Page() {
             <p>El Chanchito Rey y sus conocimientos sobre diversas materias.</p>
           </div>
         </main>
-        <footer>
-          <div style={{ 
-            display: "flex", 
-            flexDirection: "column", 
-            justifyContent: "center", 
-            alignItems: "center", 
-            gap: "16px", 
-            padding: "24px" 
-          }}>
-            <span style={{ fontSize: "0.75rem" }}>Copyright © 2025 oxiadenine</span>
-            <i className="fa-brands fa-github" />
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );
