@@ -41,6 +41,7 @@ export default function Page() {
             padding: "24px" 
           }}>
             <span style={{ fontSize: "0.75rem" }}>Copyright © 2025 oxiadenine</span>
+            <i className="fa-brands fa-github" />
           </div>
         </footer>
       </div>

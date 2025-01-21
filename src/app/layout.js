@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { orbitron } from "@/app/fonts";
 import "@/app/globals.css";
 
@@ -17,6 +18,9 @@ export default function Layout({ children }) {
           </div>
         </div>
       </body>
+      <Script src="/js/fa-icons.min.js" />
+      <Script src="/js/fa-icons-solid.min.js" />
+      <Script src="/js/fa-icons-brands.min.js" />
     </html>
   );
 }
