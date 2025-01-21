@@ -1,0 +1,37 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+.page h1, .page h2, .page h3 {
+  margin: 12px 0;
+}
+
+.page p {
+  margin: 16px 0;
+}
+
+.page h1:first-child {
+  margin-top: 0;
+}
+
+.page p:has(> img) {
+  align-self: center;
+}
+
+.page img {
+  max-width: 80%;
+  margin: 16px 10%;
+}
+
+main:has(.page) {
+  background: var(--color-secondary);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  main:has(.page) {
+    margin: 0 4%;
+  }
+}
