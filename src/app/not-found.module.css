@@ -1,0 +1,27 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  background: var(--color-primary);
+  text-align: center;
+}
+
+.not-found > h1 {
+  margin-bottom: 16px;
+}
+
+.not-found > p {
+  margin: 16px 0;
+}
+
+.not-found > a > img {
+  margin: 16px 0;
+  width: 100%;
+  max-width: calc(100% / 2);
+}
+
+.not-found > span {
+  font-size: 0.75rem;
+}

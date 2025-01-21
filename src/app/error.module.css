@@ -1,0 +1,27 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  background: var(--color-primary);
+  text-align: center;
+}
+
+.error > h1 {
+  margin-bottom: 16px;
+}
+
+.error > p {
+  margin: 16px 0;
+}
+
+.error > a > img {
+  margin: 16px 0;
+  width: 100%;
+  max-width: calc(100% / 2);
+}
+
+.error > span {
+  font-size: 0.75rem;
+}
