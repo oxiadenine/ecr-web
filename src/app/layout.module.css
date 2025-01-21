@@ -1,0 +1,33 @@
+.layout {
+  display: flex;
+  min-height: 100%;
+  background: var(--color-secondary);
+}
+
+.layout > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.layout > div > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.layout header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-primary);
+}
+
+.layout main {
+  flex: 1;
+  margin: 32px;
+}
+
+.layout footer {
+  background: var(--color-primary);
+}

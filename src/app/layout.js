@@ -1,6 +1,7 @@
 import Script from "next/script";
 import { orbitron } from "@/app/fonts";
 import "@/app/globals.css";
+import styles from "@/app/layout.module.css";
 
 export const metadata = { title: "El Chanchito Rey" };
 
@@ -8,14 +9,8 @@ export default function Layout({ children }) {
   return (
     <html lang="es" className={orbitron.variable}>
       <body>
-        <div style={{ 
-          display: "flex", 
-          minHeight: "100%", 
-          background: "var(--color-secondary)"
-        }}>
-          <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-            {children}
-          </div>
+        <div className={styles["layout"]}>
+          <div>{children}</div>
         </div>
       </body>
       <Script src="/js/fa-icons.min.js" />

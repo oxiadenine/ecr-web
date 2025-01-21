@@ -3,12 +3,7 @@ import { monoton } from "@/app/fonts";
 export default function Page() {
   return (
     <>
-      <header style={{ 
-        position: "sticky", 
-        top: 0, 
-        zIndex: 1, 
-        background: "var(--color-primary)" 
-      }}>
+      <header>
         <div style={{ 
           display: "flex", 
           flexDirection: "column", 
@@ -25,13 +20,13 @@ export default function Page() {
           </h3>
         </div>
       </header>
-      <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-        <main style={{ flex: 1, margin: "32px" }}>
+      <div>
+        <main>
           <div>
             <p>El Chanchito Rey y sus conocimientos sobre diversas materias.</p>
           </div>
         </main>
-        <footer style={{ background: "var(--color-primary)" }}>
+        <footer>
           <div style={{ 
             display: "flex", 
             flexDirection: "column", 
