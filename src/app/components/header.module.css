@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.header > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header > a > h3 {
+  font-family: var(--font-monoton);
+  color: var(--color-text-accent);
+  text-transform: uppercase;
+}
+
+.header > a > img {
+  width: 2rem;
+  height: 2rem;
+}
