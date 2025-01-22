@@ -3,8 +3,23 @@ services:
     container_name: ecr-web
     image: ecr-web
     build: .
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ecr-web.rule=Host(`localhost`)
+      - traefik.http.routers.ecr-web.entrypoints=http
+    networks:
+      - ecr-network
+  ecr-proxy:
+    container_name: ecr-proxy
+    image: traefik:v3.3.2
     ports:
-      - 3000:3000
+      - 80:80
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entryPoints.http.address=:80
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - ecr-network
 networks:
