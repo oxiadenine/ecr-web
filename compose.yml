@@ -1,0 +1,12 @@
+services:
+  ecr-web:
+    container_name: ecr-web
+    image: ecr-web
+    build: .
+    ports:
+      - 3000:3000
+    networks:
+      - ecr-network
+networks:
+  ecr-network:
+    name: ecr-network

@@ -4,7 +4,8 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "md", "mdx"]
+  pageExtensions: ["js", "jsx", "md", "mdx"],
+  output: "standalone"
 };
 
 const withMDX = createMDX({
