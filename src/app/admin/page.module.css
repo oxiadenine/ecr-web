@@ -1,0 +1,17 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+main:has(.page) {
+  margin: 0;
+  background: var(--color-secondary);
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  main:has(.page) {
+    margin: 0;
+  }
+}

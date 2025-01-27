@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  background: var(--color-primary);
+  opacity: 0.8;
+}
+
+.page > h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}

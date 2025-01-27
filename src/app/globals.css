@@ -7,6 +7,7 @@
   --color-secondary: rgb(52, 52, 52);
   --color-text: rgb(250, 213, 165);
   --color-text-accent: rgb(218, 165, 32);
+  --color-text-error: rgb(255, 49, 49);
 }
 
 *, *::before, *::after {
@@ -28,7 +29,6 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: red;
 }
 
 html, body {
@@ -50,9 +50,13 @@ a, button {
   touch-action: manipulation;
 }
 
+input {
+  caret-color: currentColor;
+}
+
 input, button {
+  background: inherit;
   border: none;
-  background: none;
 }
 
 input:focus, button:focus {
