@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { verifySession, revokeSession } from "@/app/admin/session";
+import Session from "@/app/admin/session";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import styles from "@/app/admin/page.module.css";
@@ -9,14 +9,14 @@ async function verifyAuth() {
   const cookiesStore = await cookies();
 
   if (!cookiesStore.has("sessionId")) {
-    revokeSession(null);
+    Session.revoke(null);
   
     redirect("/admin/login");
   }
   
   const sessionId = cookiesStore.get("sessionId").value;
   
-  const isValid = verifySession(sessionId, Bun.env.SESSION_KEY);
+  const isValid = Session.verify(sessionId, Bun.env.SESSION_KEY);
   
   if (!isValid) redirect("/admin/login");
 }

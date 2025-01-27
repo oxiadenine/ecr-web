@@ -9,7 +9,7 @@ export default async function sitemap() {
     changeFrequency: "yearly", 
     priority: 1 
   }].concat(knowledge.map(({ data }) => ({
-    url: `${process.env.URL}/knowledge/${data.subject}`,
+    url: `${Bun.env.URL}/knowledge/${data.subject}`,
     lastModified: new Date(data.date),
     changeFrequency: "yearly",
     priority: 1

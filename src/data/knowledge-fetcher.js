@@ -7,23 +7,26 @@ import { frontmatter } from "micromark-extension-frontmatter";
 import { toHast } from "mdast-util-to-hast";
 import { select, selectAll } from "hast-util-select";
 
-const directoryPath = path.join(process.cwd(), "data", "knowledge");
+const directoryPath = `${process.cwd()}/data/knowledge`;
 
 export async function getKnowledge() {
   return await Promise.all((await walkKnowledgeFiles(directoryPath))
-    .filter(file => file.ext == ".mdx")
-    .map(async file => {
-      const knowledge = await import(`../../data/knowledge/${file.base}`);
-      knowledge.frontmatter.subject = file.name;
+    .filter(filePath => filePath.ext == ".mdx")
+    .map(async filePath => {
+      const knowledge = await import(`@/knowledge/${filePath.base}`);
+      knowledge.frontmatter.subject = filePath.name;
       
-      const content = toHast(fromMarkdown(await fs.readFile(`${file.dir}/${file.base}`), {
-        extensions: [frontmatter()],
-        mdastExtensions: [mdxFromMarkdown(), frontmatterFromMarkdown()]
-      }));
+      const knowledgeContent = toHast(fromMarkdown(
+        await Bun.file(path.join(filePath.dir, filePath.base)).bytes(), 
+        {
+          extensions: [frontmatter()],
+          mdastExtensions: [mdxFromMarkdown(), frontmatterFromMarkdown()]
+        }
+      ));
 
-      knowledge.frontmatter.title = select("h1", content).children[0].value;
-      knowledge.frontmatter.summary = select("p", content).children[0].value;
-      knowledge.frontmatter.images = selectAll("img", content).map(element => ({ 
+      knowledge.frontmatter.title = select("h1", knowledgeContent).children[0].value;
+      knowledge.frontmatter.summary = select("p", knowledgeContent).children[0].value;
+      knowledge.frontmatter.images = selectAll("img", knowledgeContent).map(element => ({ 
         src: element.properties.src, alt: element.properties.alt 
       }));
 
@@ -47,14 +50,14 @@ export async function getKnowledgeOf(subject) {
 }
 
 async function walkKnowledgeFiles(dirPath) {
-  const files = await Promise.all((await fs.readdir(dirPath))
+  const filePaths = await Promise.all((await fs.readdir(dirPath))
     .map(async filename => {
       const filePath = path.join(dirPath, filename);
-      const stats = await fs.stat(filePath);
+      const fileStat = await Bun.file(filePath).stat();
 
-      if (stats.isDirectory()) return walkKnowledgeFiles(filePath);
-      else if (stats.isFile()) return path.parse(filePath);
+      if (fileStat.isDirectory()) return walkKnowledgeFiles(filePath);
+      else if (fileStat.isFile()) return path.parse(filePath);
     }));
     
-    return files.reduce((all, dirFiles) => all.concat(dirFiles), []);
+    return filePaths.reduce((all, dirFilePath) => all.concat(dirFilePath), []);
 }

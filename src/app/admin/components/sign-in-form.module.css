@@ -3,27 +3,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  row-gap: 32px;
 }
 
 .sign-in-form > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
+  row-gap: 8px;
 }
 
-.sign-in-form > div > input {
-  width: 100%;
-  padding: 8px;
+.sign-in-form > div > div {
   background: var(--color-secondary);
-  border: 1px solid transparent;
+}
+
+.sign-in-form > div > div:focus-within {
+  border: 1px solid var(--color-text);
+}
+
+.sign-in-form > div > div > input {
   letter-spacing: 0.125rem;
   -webkit-text-stroke: 0.25rem currentColor;
-}
-
-.sign-in-form > div > input:focus {
-  border: 1px solid var(--color-text);
 }
 
 .sign-in-form > div > span {
@@ -32,11 +32,8 @@
 }
 
 .sign-in-form > button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
   padding: 8px;
   color: var(--color-secondary);
   background: var(--color-text);
+  font-weight: 500;
 }

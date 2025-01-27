@@ -2,14 +2,14 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { revokeSession } from "@/app/admin/session";
+import Session from "@/app/admin/session";
 
 export default async function signOut(_) {
   const cookiesStore = await cookies();
 
   const sessionId = cookiesStore.get("sessionId")?.value;
 
-  revokeSession(sessionId);
+  Session.revoke(sessionId);
 
   cookiesStore.set("sessionId", "", {
     expires: new Date(0),

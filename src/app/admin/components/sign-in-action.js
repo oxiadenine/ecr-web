@@ -2,8 +2,8 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { createSession } from "@/app/admin/session";
-import { verifySessionKey } from "@/lib/admin/session-key";
+import Session from "@/app/admin/session";
+import SessionKey from "@/lib/admin/session-key";
 
 export default async function signIn(_, formData) {
   const password = formData.get("password");
@@ -15,7 +15,7 @@ export default async function signIn(_, formData) {
     };
   }
 
-  const isValid = await verifySessionKey(password, Bun.env.SESSION_KEY);
+  const isValid = await SessionKey.verify(password, Bun.env.SESSION_KEY);
 
   if (!isValid) {
     return { 
@@ -24,7 +24,7 @@ export default async function signIn(_, formData) {
     };
   }
 
-  const session = createSession(Bun.env.SESSION_KEY);
+  const session = Session.new(Bun.env.SESSION_KEY);
 
   const cookiesStore = await cookies();
    

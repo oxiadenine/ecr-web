@@ -5,6 +5,6 @@ export default function robots() {
       allow: "/", 
       disallow: "/admin/" 
     },
-    sitemap: `${process.env.URL}/sitemap.xml`
+    sitemap: `${Bun.env.URL}/sitemap.xml`
   };
 }

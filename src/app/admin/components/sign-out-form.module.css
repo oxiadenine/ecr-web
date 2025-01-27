@@ -5,11 +5,8 @@
 }
 
 .sign-out-form > button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
   padding: 8px;
   color: var(--color-secondary);
   background: var(--color-text);
+  font-weight: 500;
 }
