@@ -6,6 +6,8 @@ COPY .next/standalone .
 COPY .next/static .next/static
 COPY public public
 
+RUN chown -R bun:bun /app
+
 USER bun
 
 EXPOSE 3000
