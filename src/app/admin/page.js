@@ -1,8 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Session from "@/app/admin/session";
-import Header from "@/app/components/header";
-import Footer from "@/app/components/footer";
+import Dashboard from "@/app/admin/components/dashboard";
 import styles from "@/app/admin/page.module.css";
 
 async function verifyAuth() {
@@ -26,14 +25,12 @@ export default async function Page() {
 
   return (
     <>
-      <Header />
       <div>
         <main>
           <div className={styles["page"]}>
-            <h1>Administración</h1>
+            <Dashboard />
           </div>
         </main>
-        <Footer />
       </div>
     </>
   );

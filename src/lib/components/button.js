@@ -7,13 +7,14 @@ function Button(props) {
 
   return (
     <button 
+      id={props.id} 
+      name={props.name} 
       type={type} 
       disabled={props.disabled} 
       onClick={props.onClick} 
       className={props.className} 
       style={{ 
         display: "flex", 
-        justifyContent: "space-between", 
         alignItems: "center", 
         columnGap: "8px" 
       }}
@@ -26,6 +27,8 @@ function Button(props) {
 }
 
 Button.propTypes = { 
+  id: PropTypes.string, 
+  name: PropTypes.string, 
   type: PropTypes.oneOf(["button", "reset", "submit"]), 
   disabled: PropTypes.bool, 
   onClick: PropTypes.func, 

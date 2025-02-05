@@ -1,0 +1,17 @@
+.page-views-charts { 
+  display: grid;
+  grid-template-columns: auto;
+  gap: 32px;
+  padding: 32px;
+}
+
+@media (min-width: 1024px) {
+  .page-views-charts {
+    grid-template-columns: auto auto;
+  }
+}
+
+.page-views-charts > div {
+  position: relative;
+  height: 300px;
+}

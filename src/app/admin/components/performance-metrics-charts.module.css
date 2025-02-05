@@ -1,0 +1,17 @@
+.performance-metrics-charts { 
+  display: grid;
+  grid-template-columns: auto;
+  gap: 32px;
+  padding: 32px;
+}
+
+@media (min-width: 1024px) {
+  .performance-metrics-charts {
+    grid-template-columns: auto auto;
+  }
+}
+
+.performance-metrics-charts > div {
+  position: relative;
+  height: 300px;
+}

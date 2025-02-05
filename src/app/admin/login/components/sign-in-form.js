@@ -4,8 +4,8 @@ import { useActionState } from "react";
 import Input from "@/lib/components/input";
 import Button from "@/lib/components/button";
 import Icon from "@/lib/components/icon";
-import signIn from "@/app/admin/components/sign-in-action";
-import styles from "@/app/admin/components/sign-in-form.module.css";
+import signIn from "@/app/admin/login/components/sign-in-action";
+import styles from "@/app/admin/login/components/sign-in-form.module.css";
 
 export default function SignInForm() {
   const [state, action, isPending] = useActionState(signIn, { password: "" });

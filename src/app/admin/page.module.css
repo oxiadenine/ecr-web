@@ -1,7 +1,10 @@
 .page {
   display: flex;
   flex-direction: column;
-  padding: 32px;
+}
+
+.page > div {
+  flex: 1;
 }
 
 main:has(.page) {
@@ -14,4 +17,8 @@ main:has(.page) {
   main:has(.page) {
     margin: 0;
   }
+}
+
+main:has(.page) > div {
+  flex: 1;
 }

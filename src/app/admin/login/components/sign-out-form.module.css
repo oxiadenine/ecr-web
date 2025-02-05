@@ -1,0 +1,10 @@
+.sign-out-form {
+  display: inline-flex;
+}
+
+.sign-out-form > button {
+  padding: 8px;
+  color: var(--color-text);
+  background: var(--color-secondary);
+  font-size: 0.875rem;
+}

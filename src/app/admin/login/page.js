@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Session from "@/app/admin/session";
-import SignInForm from "@/app/admin/components/sign-in-form";
+import SignInForm from "@/app/admin/login/components/sign-in-form";
 import styles from "@/app/admin/login/page.module.css";
 
 async function verifyAuth() {

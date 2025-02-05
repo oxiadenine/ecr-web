@@ -1,0 +1,48 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .dashboard {
+    flex-direction: row;
+  }
+}
+
+.dashboard nav {
+  background: var(--color-primary);
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .dashboard nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+  }
+}
+
+.dashboard nav > div {
+  height: 100%;
+}
+
+.dashboard section {
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .dashboard section {
+    margin-left: 320px;
+  }
+}
+
+.dashboard section header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 24px;
+  background: var(--color-primary);
+  opacity: 0.8;
+}

@@ -7,7 +7,6 @@ import { monoton } from "@/app/fonts";
 import Input from "@/lib/components/input";
 import Button from "@/lib/components/button";
 import Icon from "@/lib/components/icon";
-import SignOutForm from "@/app/admin/components/sign-out-form";
 import styles from "@/app/components/header.module.css";
 
 export default function Header() {
@@ -55,7 +54,6 @@ export default function Header() {
               : <Icon type="solid" name="magnifying-glass" />}
           />
         )}
-        {pathname == "/admin" && <SignOutForm />}
       </div>
     </header>
   );
