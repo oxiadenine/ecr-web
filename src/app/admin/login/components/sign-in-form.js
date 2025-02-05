@@ -14,19 +14,21 @@ export default function SignInForm() {
     <form className={styles["sign-in-form"]} action={action}>
       <div>
         <label htmlFor="password">Contraseña:</label>
-        <Input 
-          id="password" 
-          name="password" 
-          type="password" 
-          defaultValue={state.password} 
+        <Input
+          id="password"
+          name="password"
+          type="password"
+          defaultValue={state.password}
         />
         {state.errors && <span>{state.errors.password}</span>}
       </div>
-      <Button 
-        type="submit" 
-        disabled={isPending} 
-        endIcon={<Icon type="solid" name="arrow-right-to-bracket" />} 
-      >Iniciar sesión</Button>
+      <Button
+        type="submit"
+        disabled={isPending}
+        endIcon={<Icon type="solid" name="arrow-right-to-bracket" />}
+      >
+        Iniciar sesión
+      </Button>
     </form>
   );
 }

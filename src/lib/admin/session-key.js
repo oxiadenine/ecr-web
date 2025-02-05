@@ -18,13 +18,13 @@ export default class SessionKey {
   static extractData(key) {
     const data = TextDecoder().decode(Uint8Array.fromHex(key)).split("$");
   
-    return { 
-      id: data[1], 
-      version: data[2].split("=")[1], 
-      params: data[3].split(",").reduce((o, p) => ({ 
-        ...o, [p.split("=")[0]]: p.split("=")[1] 
-      }), {}), 
-      salt: data[4], 
+    return {
+      id: data[1],
+      version: data[2].split("=")[1],
+      params: data[3].split(",").reduce((o, p) => ({
+        ...o, [p.split("=")[0]]: p.split("=")[1]
+      }), {}),
+      salt: data[4],
       hash: data[5]
     };
   }

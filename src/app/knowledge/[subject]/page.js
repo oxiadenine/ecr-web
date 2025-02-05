@@ -17,8 +17,8 @@ export async function generateMetadata({ params }) {
       title: knowledge.data.title,
       description: knowledge.data.title,
       url: `${process.env.URL}/knowledge/${knowledge.data.subject}`,
-      images: knowledge.data.images.map(image => ({ 
-        url: `${process.env.URL}${image.src}`, alt: image.alt 
+      images: knowledge.data.images.map(image => ({
+        url: `${process.env.URL}${image.src}`, alt: image.alt
       }))
     }
   };

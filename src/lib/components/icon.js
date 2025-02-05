@@ -6,9 +6,9 @@ function Icon(props) {
   return <i className={`fa-${props.type} fa-${props.name}`} />;
 }
 
-Icon.propTypes = { 
-  type: PropTypes.oneOf(["solid", "brands"]).isRequired, 
-  name: PropTypes.string.isRequired 
+Icon.propTypes = {
+  type: PropTypes.oneOf(["solid", "brands"]).isRequired,
+  name: PropTypes.string.isRequired
 };
 
 export default Icon;

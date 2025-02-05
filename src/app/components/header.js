@@ -16,7 +16,7 @@ export default function Header() {
 
   const [searchTerm, setSearchTerm] = useState(searchParams.get("s") ?? "");
 
-  function onSearchInputChnage(event) {
+  function onSearchInputChange(event) {
     setSearchTerm(event.target.value);
   }
 
@@ -41,10 +41,10 @@ export default function Header() {
           <h3 className={monoton.variable}>El Chanchito Rey</h3>
         </Link>
         {pathname == "/" && (
-          <Input 
-            placeholder="Buscar..." 
-            onChange={onSearchInputChnage} 
-            value={searchTerm} 
+          <Input
+            placeholder="Buscar..."
+            onChange={onSearchInputChange}
+            value={searchTerm}
             endIcon={searchTerm.length > 0
               ? (
                 <Button onClick={onClearIconClick}>

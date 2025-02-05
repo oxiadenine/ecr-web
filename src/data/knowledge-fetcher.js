@@ -17,12 +17,10 @@ export async function getKnowledge() {
       knowledge.frontmatter.subject = filePath.name;
       
       const knowledgeContent = toHast(fromMarkdown(
-        await Bun.file(path.join(filePath.dir, filePath.base)).bytes(), 
-        {
+        await Bun.file(path.join(filePath.dir,filePath.base)).bytes(), {
           extensions: [frontmatter()],
           mdastExtensions: [mdxFromMarkdown(), frontmatterFromMarkdown()]
-        }
-      ));
+        }));
 
       knowledge.frontmatter.title = select("h1", knowledgeContent).children[0].value;
       knowledge.frontmatter.summary = select("p", knowledgeContent).children[0].value;

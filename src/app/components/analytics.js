@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { onLCP, onCLS, onINP, onFCP, onTTFB } from "next/dist/compiled/web-vitals";
-import useAnalytics from "@/lib/use-analytics-hook";
+import useAnalytics from "@/lib/use-analytics";
 import { storePageViews, storePerformanceMetrics } from "@/app/components/analytics-actions";
 
 export default function Analytics() {

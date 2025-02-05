@@ -18,9 +18,9 @@ export default async function signIn(_, formData) {
   const isValid = await SessionKey.verify(password, Bun.env.SESSION_KEY);
 
   if (!isValid) {
-    return { 
-      password, 
-      errors: { password: "La contraseña no es válida" } 
+    return {
+      password,
+      errors: { password: "La contraseña no es válida" }
     };
   }
 
