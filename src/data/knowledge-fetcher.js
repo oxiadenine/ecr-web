@@ -11,13 +11,18 @@ const directoryPath = `${process.cwd()}/data/knowledge`;
 
 export async function getKnowledge() {
   return await Promise.all((await walkKnowledgeFiles(directoryPath))
-    .filter(filePath => filePath.ext == ".mdx")
-    .map(async filePath => {
-      const knowledge = await import(`@/knowledge/${filePath.base}`);
-      knowledge.frontmatter.subject = filePath.name;
+    .filter(file => file.ext == ".mdx")
+    .map(async file => {
+      const relativeFilePath = path.join(
+        file.dir.replace(directoryPath, "/"), 
+        file.base
+      ).substring(1);
+      
+      const knowledge = await import(`@/knowledge/${relativeFilePath}`);
+      knowledge.frontmatter.subject = file.name;
       
       const knowledgeContent = toHast(fromMarkdown(
-        await Bun.file(path.join(filePath.dir,filePath.base)).bytes(), {
+        await Bun.file(path.join(file.dir, file.base)).bytes(), {
           extensions: [frontmatter()],
           mdastExtensions: [mdxFromMarkdown(), frontmatterFromMarkdown()]
         }));
