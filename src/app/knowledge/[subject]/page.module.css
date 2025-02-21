@@ -4,25 +4,65 @@
   padding: 32px;
 }
 
-.page h1, .page h2, .page h3 {
-  margin: 12px 0;
+.page h1, .page h2 {
+  margin: 16px 0;
 }
 
-.page p {
-  margin: 16px 0;
+.page h3 {
+  margin: 14px 0;
+  font-size: 1.25rem;
 }
 
 .page h1:first-child {
   margin-top: 0;
 }
 
+.page p {
+  margin: 12px 0;
+}
+
 .page p:has(> img) {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.page ul {
+  margin: 8px 16px;
+}
+
+.page ul > li {
+  margin: 8px 0;
+  font-size: 0.875rem;
+}
+
+.page ul > li:first-child {
+  margin-top: 0;
+}
+
+.page ul > li:last-child {
+  margin-bottom: 0;
+}
+
+.page p, .page ul {
+  line-height: 1.5rem;
+}
+
+.page pre {
   align-self: center;
+  margin: 16px 0;
+  white-space: pre-wrap;
 }
 
 .page img {
   max-width: 80%;
-  margin: 16px 10%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .page img {
+    max-width: 50%;
+  }
 }
 
 main:has(.page) {
