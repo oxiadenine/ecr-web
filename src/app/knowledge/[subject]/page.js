@@ -11,14 +11,14 @@ export async function generateMetadata({ params }) {
   return {
     title: knowledge.data.title,
     description: knowledge.data.title,
-    keywords: knowledge.data.subject.split("-"),
+    keywords: knowledge.data.tags?.split(",") ?? [],
     authors: [{ name: knowledge.data.author }],
     openGraph: {
       title: knowledge.data.title,
       description: knowledge.data.title,
-      url: `${process.env.URL}/knowledge/${knowledge.data.subject}`,
+      url: `${Bun.env.URL}/knowledge/${knowledge.data.subject}`,
       images: knowledge.data.images.map(image => ({
-        url: `${process.env.URL}${image.src}`, alt: image.alt
+        url: `${Bun.env.URL}${image.src}`, alt: image.alt
       }))
     }
   };
