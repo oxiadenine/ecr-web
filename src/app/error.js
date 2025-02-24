@@ -14,7 +14,7 @@ export default function Error({ error }) {
       <h1>Oh no...</h1>
       <p>Algo extraño ha ocurrido tras querer saber mas de la cuenta</p>
       <Link href="/">
-        <img src="/ecr-logo.png" alt="logo" />
+        <img src="/images/ecr-logo.png" alt="logo" />
       </Link>
       <span>Haz click en la imágen para volver a la página de inicio</span>
     </div>
