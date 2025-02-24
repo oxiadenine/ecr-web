@@ -3,10 +3,18 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import styles from "@/app/error.module.css";
+import logError from "@/data/log-error-action";
  
 export default function Error({ error }) {
   useEffect(() => {
-    console.error(error);
+    const reportError = async () => await logError({
+      digest: error.digest,
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    });
+
+    reportError();
   }, [error]);
 
   return (
