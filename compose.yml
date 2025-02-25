@@ -2,11 +2,21 @@ services:
   ecr-web:
     container_name: ecr-web
     image: ecr-web
-    build: .
+    build:
+      context: .
+      args:
+        user: ${USER}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.ecr-web.rule=Host(`localhost`)
-      - traefik.http.routers.ecr-web.entrypoints=http
+      - traefik.http.routers.ecrweb.rule=Host(`${HOST}`) || Host(`www.${HOST}`)
+      - traefik.http.routers.ecrweb.entrypoints=websecure
+      - traefik.http.routers.ecrweb.tls=true
+      - traefik.http.routers.ecrweb.middlewares=wwwredirect
+      - traefik.http.middlewares.wwwredirect.redirectregex.regex=^https?://www\.${HOST}/?(.*)$
+      - traefik.http.middlewares.wwwredirect.redirectregex.replacement=https://${HOST}/$${1}
+      - traefik.http.middlewares.wwwredirect.redirectregex.permanent=true
+    volumes:
+      - ./data:/app/data
     networks:
       - ecr-network
   ecr-proxy:
@@ -14,12 +24,16 @@ services:
     image: traefik:v3.3.2
     ports:
       - 80:80
+      - 443:443
     command:
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
-      - --entryPoints.http.address=:80
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - ecr-network
 networks:

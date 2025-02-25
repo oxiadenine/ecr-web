@@ -1,14 +1,18 @@
 FROM oven/bun:1.2-alpine
 
+ARG user
+
+ENV USER=${user:-root}
+
 WORKDIR /app
 
 COPY .next/standalone .
 COPY .next/static .next/static
 COPY public public
 
-RUN chown -R bun:bun /app
+RUN chown -R $USER:$USER /app
 
-USER bun
+USER $USER
 
 EXPOSE 3000
 
