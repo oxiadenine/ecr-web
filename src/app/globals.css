@@ -68,15 +68,16 @@ input, button, textarea, select {
   font: inherit;
 }
 
-p {
-  text-wrap: pretty;
-}
-
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p {
+  word-spacing: calc((2 / 16) * 1rem);
+  letter-spacing: calc((1 / 16) * 0.5rem);
+}
+
+h1, h2, h3, h4, h5, h6, p {
   overflow-wrap: break-word;
 }
 

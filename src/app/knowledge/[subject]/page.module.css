@@ -50,8 +50,12 @@
 
 .page pre {
   align-self: center;
+  width: 256px;
   margin: 16px 0;
-  white-space: pre-wrap;
+  padding: 16px;
+  overflow-x: scroll;
+  background: var(--color-primary);
+  border: 1px solid var(--color-text);
 }
 
 .page img {
@@ -59,7 +63,11 @@
   height: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .page pre {
+    width: 512px;
+  }
+
   .page img {
     max-width: 50%;
   }
