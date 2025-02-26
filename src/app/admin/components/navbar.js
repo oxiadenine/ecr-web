@@ -12,7 +12,7 @@ export default function Navbar({ menuItem, onMenuItemClick }) {
     <nav>
       <div className={styles["navbar"]}>
         <Link href="/">
-          <img src="/ecr-logo.png" alt="logo" />
+          <img src="/images/ecr-logo.png" alt="logo" />
           <h3 className={monoton.variable}>El Chanchito Rey</h3>
         </Link>
         <div>
