@@ -16,7 +16,7 @@ services:
       - traefik.http.middlewares.wwwredirect.redirectregex.replacement=https://${HOST}/$${1}
       - traefik.http.middlewares.wwwredirect.redirectregex.permanent=true
     volumes:
-      - ./data:/app/data
+      - ./data:/ecr-web/data
     networks:
       - ecr-network
   ecr-proxy:

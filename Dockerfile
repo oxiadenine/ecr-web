@@ -4,15 +4,15 @@ ARG user
 
 ENV USER=${user:-root}
 
-WORKDIR /app
+WORKDIR /ecr-web
 
 COPY .next/standalone .
 COPY .next/static .next/static
 COPY public public
 
-RUN chown -R $USER:$USER /app
+RUN chown -R $USER:$USER /ecr-web
 
-USER $USER
+USER $USER:$USER
 
 EXPOSE 3000
 
