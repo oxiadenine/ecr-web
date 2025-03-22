@@ -2,7 +2,7 @@ import { Database } from "bun:sqlite";
 
 export default class AuthDatabase {
   static database = new Database(
-    `${process.cwd()}/data/auth.sqlite`, 
+    `${process.cwd()}/data/db/auth.sqlite`, 
     { create: true, strict: true }
   );
 

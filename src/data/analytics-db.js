@@ -2,7 +2,7 @@ import { Database } from "bun:sqlite";
 
 export default class AnalyticsDatabase {
   static database = new Database(
-    `${process.cwd()}/data/analytics.sqlite`, 
+    `${process.cwd()}/data/db/analytics.sqlite`, 
     { create: true, strict: true }
   );
 
