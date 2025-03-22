@@ -20,6 +20,10 @@ async function verifyAuth() {
   if (!isValid) redirect("/admin/login");
 }
 
+export const metadata = {
+  title: "Admin"
+};
+
 export default async function Page() {
   await verifyAuth();
 

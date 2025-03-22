@@ -3,8 +3,6 @@ import Analytics from "@/app/components/analytics";
 import "@/app/globals.css";
 import styles from "@/app/layout.module.css";
 
-export const metadata = { title: "El Chanchito Rey" };
-
 export default function Layout({ children }) {
   const isAnalyticsEnabled = !!+Bun.env.ANALYTICS_ENABLE ?? false;
 

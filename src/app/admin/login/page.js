@@ -16,6 +16,10 @@ async function verifyAuth() {
   }
 }
 
+export const metadata = {
+  title: "Admin | Login"
+};
+
 export default async function Page() {
   await verifyAuth();
 
