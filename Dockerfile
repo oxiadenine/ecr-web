@@ -1,18 +1,21 @@
 FROM oven/bun:1.2.5-alpine
 
-ARG user
+ARG ugid
 
-ENV USER=${user:-root}
+ENV UGID=${ugid:-0}
 
-WORKDIR /ecr
+RUN if [ $UGID != 0 ] && [ $UGID != 1000 ]; then addgroup -g $UGID ecr; fi
+RUN if [ $UGID != 0 ] && [ $UGID != 1000 ]; then adduser -u $UGID -D ecr -G ecr; fi
+
+WORKDIR /home/ecr
 
 COPY .next/standalone .
 COPY .next/static .next/static
 COPY public public
 
-RUN chown -R $USER:$USER /ecr
+RUN chown -R $UGID:$UGID /home/ecr
 
-USER $USER:$USER
+USER $UGID:$UGID
 
 EXPOSE 3000
 

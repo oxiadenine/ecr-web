@@ -5,7 +5,7 @@ services:
     build:
       context: .
       args:
-        user: ${USER}
+        ugid: ${UGID}
     labels:
       - traefik.enable=true
       - traefik.http.routers.ecrweb.rule=Host(`${HOST}`) || Host(`www.${HOST}`)
@@ -16,7 +16,7 @@ services:
       - traefik.http.middlewares.wwwredirect.redirectregex.replacement=https://${HOST}/$${1}
       - traefik.http.middlewares.wwwredirect.redirectregex.permanent=true
     volumes:
-      - ./data:/ecr/data
+      - ./data:/home/ecr/data
     networks:
       - ecr-network
   ecr-proxy:
