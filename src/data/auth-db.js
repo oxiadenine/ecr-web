@@ -7,7 +7,7 @@ export default class AuthDatabase {
   );
 
   static {
-    this.database.run("CREATE TABLE IF NOT EXISTS sessions (id TEXT BOT NULL PRIMARY KEY, iv TEXT NOT NULL, authTag TEXT NOT NULL)");
+    this.database.run("CREATE TABLE IF NOT EXISTS sessions (id TEXT NOT NULL PRIMARY KEY, iv TEXT NOT NULL, authTag TEXT NOT NULL)");
   }
 
   static sessions = class Sessions {
